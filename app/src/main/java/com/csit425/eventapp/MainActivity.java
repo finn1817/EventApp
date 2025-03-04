@@ -22,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private EventAdapter adapter;
     private List<Event> eventList;
-    private TextView emptyText; // Added to show message if no events
-    private static final String API_URL = "https://your-real-api.com/events"; // Replace with a real API
+    private TextView emptyText; // added to show message if no events
+    private static final String API_URL = "https://your-real-api.com/events"; // replace once we get / set up a real API (prob can use flask)
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         recyclerView = findViewById(R.id.recyclerView);
-        emptyText = findViewById(R.id.emptyText); // Get reference to TextView
+        emptyText = findViewById(R.id.emptyText); // to get a reference to textView
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         eventList = new ArrayList<>();
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONArray response) {
                         if (response.length() == 0) {
-                            emptyText.setVisibility(TextView.VISIBLE); // Show "No Events Available"
+                            emptyText.setVisibility(TextView.VISIBLE); // shows the "No Events Available"
                             recyclerView.setVisibility(RecyclerView.GONE);
                             return;
                         }
